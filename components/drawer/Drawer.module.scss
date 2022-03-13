@@ -1,0 +1,42 @@
+.drawer__container {
+  width: 15%;
+  height: 100vh;
+  right: 0;
+
+  position: absolute;
+  z-index: 1;
+
+  text-align: right;
+
+  background-color: rgba(0, 0, 0, 0.064);
+}
+
+.drawer__list {
+  margin-right: 2rem;
+
+  h2 {
+    cursor: pointer;
+  }
+}
+
+.colors {
+  right: 2rem;
+
+  position: absolute;
+  z-index: 2;
+}
+
+.font_colors {
+  right: 2rem;
+
+  position: absolute;
+  z-index: 2;
+}
+
+.drawer__waifu_list {
+  h3 {
+    padding: 0.25rem;
+    margin: 0rem;
+    cursor: pointer;
+  }
+}
