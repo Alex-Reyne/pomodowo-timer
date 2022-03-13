@@ -45,5 +45,17 @@
 /* The SVG path that displays the timer's progress */
 .base_timer__path_elapsed {
   stroke-width: 7px;
-  stroke: grey;
+  stroke: #8080807b;
+}
+
+.flow_type {
+  text-align: center;
+}
+
+.waifu_pic {
+  width: 300px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
 }
