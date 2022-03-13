@@ -11,6 +11,7 @@ export default function Home() {
   const [bgColor, setBgColor] = useState('#1d1d1d');
   const [fontColor, setFontColor] = useState('#fff');
   const [waifu, setWaifu] = useState('/rem.png');
+  const [flowType, setFlowType] = useState('pomo');
 
   return (
     <div className={styles.container}>
@@ -26,9 +27,10 @@ export default function Home() {
           setBgColor={setBgColor}
           setFontColor={setFontColor}
           setWaifu={setWaifu}
+          flowType={flowType}
+          setFlowType={setFlowType}
         />
-        <Timer bgColor={bgColor} waifu={waifu} />
-        <img src={waifu} className={styles.waifu_pic} />
+        <Timer bgColor={bgColor} waifu={waifu} flowType={flowType} setFlowType={setFlowType} />
       </main>
 
       <footer className={styles.footer}>
