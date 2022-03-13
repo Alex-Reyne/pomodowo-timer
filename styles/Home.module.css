@@ -109,11 +109,3 @@
     flex-direction: column;
   }
 }
-
-.waifu_pic {
-  width: 300px;
-  bottom: 0;
-  left: 2rem;
-  position: absolute;
-  z-index: 3;
-}
