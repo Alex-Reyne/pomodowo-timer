@@ -16,12 +16,23 @@ const colors = [
   '#9900EF',
 ];
 
-export const Drawer = ({ setBgColor, setFontColor, setWaifu }) => {
+export const Drawer = ({ setBgColor, setFontColor, setWaifu, flowType, setFlowType }) => {
   const [openColorChanger, setOpenColorChanger] = useState(false);
   const [openFontColorChanger, setOpenFontColorChanger] = useState(false);
   const [openWaifuPicker, setOpenWaifuPicker] = useState(false);
 
-  const waifus = ['rem', 'ram', 'emilia', '2b', 'alice', 'marisa', 'oumae', 'sakuraku'];
+  const waifus = [
+    'rem',
+    'hange',
+    'holo',
+    'ram',
+    'emilia',
+    '2b',
+    'alice',
+    'marisa',
+    'oumae',
+    'sakuraku',
+  ];
 
   const handleSetOpen = () => {
     setOpenFontColorChanger(false);
@@ -63,10 +74,24 @@ export const Drawer = ({ setBgColor, setFontColor, setWaifu }) => {
             <TwitterPicker colors={colors} triangle="top-right" onChange={handleFontChange} />
           </div>
         )}
-        <h2>Work Timer</h2>
-        <h2>Short Break Timer</h2>
-        <h2>Long Break Timer</h2>
-        <h2>Short Breaks</h2>
+        <h2>Pomo Timer</h2>
+        <h2>Short Doro Timer</h2>
+        <h2>Long Doro Timer</h2>
+        <h2>Flow Type</h2>
+        <div className={styles.flow_types}>
+          <h3
+            onClick={(e) => setFlowType('pomo')}
+            className={flowType === 'doro' ? styles.flow_unselected : null}
+          >
+            Pomo
+          </h3>
+          <h3
+            className={flowType === 'pomo' ? styles.flow_unselected : null}
+            onClick={(e) => setFlowType('doro')}
+          >
+            Doro
+          </h3>
+        </div>
         <h2 onClick={handleWaifuPicker}>Change Waifu</h2>
         {openWaifuPicker && (
           <div className={styles.drawer__waifu_list}>
@@ -75,6 +100,7 @@ export const Drawer = ({ setBgColor, setFontColor, setWaifu }) => {
                 <h3
                   onClick={(e) => {
                     setWaifu(`/${waifu}.png`);
+                    setOpenWaifuPicker(false);
                   }}
                 >
                   {waifu}
