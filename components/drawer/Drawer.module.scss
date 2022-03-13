@@ -40,3 +40,20 @@
     cursor: pointer;
   }
 }
+
+.flow_types {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  h3 {
+    padding: 0;
+    margin: 0 0 0 1rem;
+    cursor: pointer;
+  }
+}
+
+.flow_unselected {
+  color: #6c6c6c72;
+}
