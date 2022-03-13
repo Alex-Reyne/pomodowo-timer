@@ -14,3 +14,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+button {
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  color: #1d1d1d;
+  background-color: #f6f6f6;
+  box-shadow: 0 0 5px #00000041;
+}
