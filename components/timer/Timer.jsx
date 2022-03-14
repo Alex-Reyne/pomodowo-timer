@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import styles from './Timer.module.scss';
 
-export const Timer = ({ bgColor, flowType, setFlowType, waifu }) => {
-  const [workTime, setWorkTime] = useState(2);
-  const [breakTime, setBreakTime] = useState(1);
-  const [longBreakTime, setLongBreakTime] = useState(10);
+export const Timer = ({
+  bgColor,
+  flowType,
+  setFlowType,
+  waifu,
+  workTime,
+  breakTime,
+  longBreakTime,
+}) => {
   const [flowSet, setFlowSet] = useState(1);
 
   const [timeLeft, setTimeLeft] = useState(workTime);
@@ -22,7 +27,7 @@ export const Timer = ({ bgColor, flowType, setFlowType, waifu }) => {
     return `${minutes}:${seconds}`;
   }
 
-  useEffect(() => {
+  const checkFlow = () => {
     if (flowType === 'pomo') {
       setTimeLeft(workTime);
     }
@@ -30,6 +35,10 @@ export const Timer = ({ bgColor, flowType, setFlowType, waifu }) => {
     if (flowType === 'doro') {
       flowSet % 4 === 0 ? setTimeLeft(longBreakTime) : setTimeLeft(breakTime);
     }
+  };
+
+  useEffect(() => {
+    checkFlow();
   }, [flowType]);
 
   const start = () => {
@@ -41,6 +50,10 @@ export const Timer = ({ bgColor, flowType, setFlowType, waifu }) => {
     }, 1000);
     setTimer(timer);
   };
+
+  useEffect(() => {
+    checkFlow();
+  }, [workTime, breakTime, longBreakTime]);
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -79,7 +92,13 @@ export const Timer = ({ bgColor, flowType, setFlowType, waifu }) => {
         </h1>
         <button onClick={() => start()}>Start</button>
         <button onClick={() => clearInterval(timer)}>Stop</button>
-        <button onClick={() => setTimeLeft(workTime)}>Reset</button>
+        <button
+          onClick={() => {
+            checkFlow();
+          }}
+        >
+          Reset
+        </button>
       </div>
     </div>
   );
