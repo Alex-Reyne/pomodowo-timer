@@ -18,6 +18,7 @@ const colors = [
 
 export const Drawer = ({
   setBgColor,
+  fontColor,
   setFontColor,
   setWaifu,
   flowType,
@@ -104,31 +105,31 @@ export const Drawer = ({
         )}
         <h2
           onClick={() => {
-            setOpenPomo(true);
             setOpenShort(false);
             setOpenLong(false);
+            openPomo ? setOpenPomo(false) : setOpenPomo(true);
           }}
         >
           Pomo Timer
         </h2>
         {openPomo && (
           <form onSubmit={(e) => handlePomo(e)}>
-            <input type="number" placeholder="minutes"></input>
+            <input type="number" placeholder="minutes" style={{ color: fontColor }}></input>
             <button type="submit">set</button>
           </form>
         )}
         <h2
           onClick={() => {
             setOpenPomo(false);
-            setOpenShort(true);
             setOpenLong(false);
+            openShort ? setOpenShort(false) : setOpenShort(true);
           }}
         >
           Short Doro Timer
         </h2>
         {openShort && (
           <form onSubmit={(e) => handleShort(e)}>
-            <input type="number" placeholder="minutes"></input>
+            <input type="number" placeholder="minutes" style={{ color: fontColor }}></input>
             <button type="submit">set</button>
           </form>
         )}
@@ -136,14 +137,14 @@ export const Drawer = ({
           onClick={() => {
             setOpenPomo(false);
             setOpenShort(false);
-            setOpenLong(true);
+            openLong ? setOpenLong(false) : setOpenLong(true);
           }}
         >
           Long Doro Timer
         </h2>
         {openLong && (
           <form onSubmit={(e) => handleLong(e)}>
-            <input type="number" placeholder="minutes"></input>
+            <input type="number" placeholder="minutes" style={{ color: fontColor }}></input>
             <button type="submit">set</button>
           </form>
         )}
