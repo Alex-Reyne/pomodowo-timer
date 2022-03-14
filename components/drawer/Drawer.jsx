@@ -16,10 +16,22 @@ const colors = [
   '#9900EF',
 ];
 
-export const Drawer = ({ setBgColor, setFontColor, setWaifu, flowType, setFlowType }) => {
+export const Drawer = ({
+  setBgColor,
+  setFontColor,
+  setWaifu,
+  flowType,
+  setFlowType,
+  setWorkTime,
+  setBreakTime,
+  setLongBreakTime,
+}) => {
   const [openColorChanger, setOpenColorChanger] = useState(false);
   const [openFontColorChanger, setOpenFontColorChanger] = useState(false);
   const [openWaifuPicker, setOpenWaifuPicker] = useState(false);
+  const [openPomo, setOpenPomo] = useState(false);
+  const [openShort, setOpenShort] = useState(false);
+  const [openLong, setOpenLong] = useState(false);
 
   const waifus = [
     'rem',
@@ -58,6 +70,22 @@ export const Drawer = ({ setBgColor, setFontColor, setWaifu, flowType, setFlowTy
     openWaifuPicker ? setOpenWaifuPicker(false) : setOpenWaifuPicker(true);
   };
 
+  const handlePomo = (e) => {
+    e.preventDefault();
+    setWorkTime(e.target[0].value * 60);
+    setOpenPomo(false);
+  };
+  const handleShort = (e) => {
+    e.preventDefault();
+    setBreakTime(e.target[0].value * 60);
+    setOpenShort(false);
+  };
+  const handleLong = (e) => {
+    e.preventDefault();
+    setLongBreakTime(e.target[0].value * 60);
+    setOpenLong(false);
+  };
+
   return (
     <div className={styles.drawer__container}>
       <div className={styles.drawer__list}>
@@ -74,9 +102,51 @@ export const Drawer = ({ setBgColor, setFontColor, setWaifu, flowType, setFlowTy
             <TwitterPicker colors={colors} triangle="top-right" onChange={handleFontChange} />
           </div>
         )}
-        <h2>Pomo Timer</h2>
-        <h2>Short Doro Timer</h2>
-        <h2>Long Doro Timer</h2>
+        <h2
+          onClick={() => {
+            setOpenPomo(true);
+            setOpenShort(false);
+            setOpenLong(false);
+          }}
+        >
+          Pomo Timer
+        </h2>
+        {openPomo && (
+          <form onSubmit={(e) => handlePomo(e)}>
+            <input type="number" placeholder="minutes"></input>
+            <button type="submit">set</button>
+          </form>
+        )}
+        <h2
+          onClick={() => {
+            setOpenPomo(false);
+            setOpenShort(true);
+            setOpenLong(false);
+          }}
+        >
+          Short Doro Timer
+        </h2>
+        {openShort && (
+          <form onSubmit={(e) => handleShort(e)}>
+            <input type="number" placeholder="minutes"></input>
+            <button type="submit">set</button>
+          </form>
+        )}
+        <h2
+          onClick={() => {
+            setOpenPomo(false);
+            setOpenShort(false);
+            setOpenLong(true);
+          }}
+        >
+          Long Doro Timer
+        </h2>
+        {openLong && (
+          <form onSubmit={(e) => handleLong(e)}>
+            <input type="number" placeholder="minutes"></input>
+            <button type="submit">set</button>
+          </form>
+        )}
         <h2>Flow Type</h2>
         <div className={styles.flow_types}>
           <h3
