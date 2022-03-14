@@ -1,11 +1,10 @@
 import Head from 'next/head';
-import Image from 'next/image';
 
 import { Drawer } from '../components/drawer/drawer';
 import { Timer } from '../components/timer/timer';
 import styles from '../styles/Home.module.css';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const [bgColor, setBgColor] = useState('#1d1d1d');
@@ -15,6 +14,53 @@ export default function Home() {
   const [workTime, setWorkTime] = useState(25 * 60);
   const [breakTime, setBreakTime] = useState(5 * 60);
   const [longBreakTime, setLongBreakTime] = useState(25 * 60);
+
+  useEffect(() => {
+    if (waifu.includes('rem')) {
+      setFontColor('#fff');
+      setBgColor('#8ED1FC');
+    }
+    if (waifu.includes('hange')) {
+      setFontColor('#fff');
+      setBgColor('#7BDCB5');
+    }
+    if (waifu.includes('holo')) {
+      setFontColor('#fff');
+      setBgColor('#F78DA7');
+    }
+    if (waifu.includes('asuka')) {
+      setFontColor('#fff');
+      setBgColor('#EB144C');
+    }
+    if (waifu.includes('ram')) {
+      setFontColor('#fff');
+      setBgColor('#F78DA7');
+    }
+    if (waifu.includes('emilia')) {
+      setFontColor('#fff');
+      setBgColor('#8766bf');
+    }
+    if (waifu.includes('2b')) {
+      setFontColor('#fff');
+      setBgColor('#1d1d1d');
+    }
+    if (waifu.includes('alice')) {
+      setFontColor('#fff');
+      setBgColor('#EB144C');
+    }
+    if (waifu.includes('marisa')) {
+      setFontColor('#fff');
+      setBgColor('#0693E3');
+    }
+    if (waifu.includes('oumae')) {
+      setFontColor('#fff');
+      setBgColor('#7BDCB5');
+    }
+    if (waifu.includes('sakuraku')) {
+      setFontColor('#1d1d1d');
+      setBgColor('#fff');
+    }
+  }, [waifu]);
 
   return (
     <div className={styles.container}>
