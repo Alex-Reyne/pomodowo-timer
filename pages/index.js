@@ -12,6 +12,9 @@ export default function Home() {
   const [fontColor, setFontColor] = useState('#fff');
   const [waifu, setWaifu] = useState('/rem.png');
   const [flowType, setFlowType] = useState('pomo');
+  const [workTime, setWorkTime] = useState(2);
+  const [breakTime, setBreakTime] = useState(1);
+  const [longBreakTime, setLongBreakTime] = useState(10);
 
   return (
     <div className={styles.container}>
@@ -25,12 +28,24 @@ export default function Home() {
         <Drawer
           bgColor={bgColor}
           setBgColor={setBgColor}
+          fontColor={fontColor}
           setFontColor={setFontColor}
           setWaifu={setWaifu}
           flowType={flowType}
           setFlowType={setFlowType}
+          setWorkTime={setWorkTime}
+          setBreakTime={setBreakTime}
+          setLongBreakTime={setLongBreakTime}
         />
-        <Timer bgColor={bgColor} waifu={waifu} flowType={flowType} setFlowType={setFlowType} />
+        <Timer
+          bgColor={bgColor}
+          waifu={waifu}
+          flowType={flowType}
+          setFlowType={setFlowType}
+          workTime={workTime}
+          breakTime={breakTime}
+          longBreakTime={longBreakTime}
+        />
       </main>
 
       <footer className={styles.footer}>
