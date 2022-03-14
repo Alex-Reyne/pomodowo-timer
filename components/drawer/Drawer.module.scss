@@ -9,6 +9,20 @@
   text-align: right;
 
   background-color: rgba(0, 0, 0, 0.064);
+
+  input {
+    border: none;
+    border-radius: 0.25rem;
+    height: 1.9rem;
+    width: 30%;
+
+    background-color: #7d7d7d4e;
+
+    text-align: center;
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
 .drawer__list {
