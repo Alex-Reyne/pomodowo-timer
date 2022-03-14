@@ -13,13 +13,14 @@ const colors = [
   '#ABB8C3',
   '#EB144C',
   '#F78DA7',
-  '#9900EF',
+  '#8766bf',
 ];
 
 export const Drawer = ({
   setBgColor,
   fontColor,
   setFontColor,
+  waifu,
   setWaifu,
   flowType,
   setFlowType,
