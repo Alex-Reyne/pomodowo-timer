@@ -1,4 +1,7 @@
 .drawer__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 18rem;
   height: 100vh;
   right: 0;
@@ -23,6 +26,16 @@
       outline: none;
     }
   }
+}
+
+.settings_button {
+  top: 0;
+  right: 2rem;
+
+  position: absolute;
+  z-index: 3;
+
+  cursor: pointer;
 }
 
 .drawer__list {
@@ -70,4 +83,15 @@
 
 .flow_unselected {
   color: #6c6c6c72;
+}
+
+.coffee {
+  margin: 2rem 0;
+  text-align: center;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

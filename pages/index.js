@@ -9,12 +9,12 @@ import { useState } from 'react';
 
 export default function Home() {
   const [bgColor, setBgColor] = useState('#1d1d1d');
-  const [fontColor, setFontColor] = useState('#fff');
+  const [fontColor, setFontColor] = useState('#8ED1FC');
   const [waifu, setWaifu] = useState('/rem.png');
   const [flowType, setFlowType] = useState('pomo');
-  const [workTime, setWorkTime] = useState(2);
-  const [breakTime, setBreakTime] = useState(1);
-  const [longBreakTime, setLongBreakTime] = useState(10);
+  const [workTime, setWorkTime] = useState(25 * 60);
+  const [breakTime, setBreakTime] = useState(5 * 60);
+  const [longBreakTime, setLongBreakTime] = useState(25 * 60);
 
   return (
     <div className={styles.container}>
@@ -33,8 +33,11 @@ export default function Home() {
           setWaifu={setWaifu}
           flowType={flowType}
           setFlowType={setFlowType}
+          workTime={workTime}
           setWorkTime={setWorkTime}
+          breakTime={breakTime}
           setBreakTime={setBreakTime}
+          longBreakTime={longBreakTime}
           setLongBreakTime={setLongBreakTime}
         />
         <Timer
@@ -47,19 +50,6 @@ export default function Home() {
           longBreakTime={longBreakTime}
         />
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   );
 }
