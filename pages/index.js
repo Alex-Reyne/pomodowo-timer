@@ -1,14 +1,14 @@
 import Head from 'next/head';
 
-import { Drawer } from '../components/drawer/drawer';
-import { Timer } from '../components/timer/timer';
+import { Drawer } from '../components/drawer/Drawer';
+import { Timer } from '../components/timer/Timer';
 import styles from '../styles/Home.module.css';
 
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  const [bgColor, setBgColor] = useState('#1d1d1d');
-  const [fontColor, setFontColor] = useState('#8ED1FC');
+  const [bgColor, setBgColor] = useState('#8ED1FC');
+  const [fontColor, setFontColor] = useState('#fff');
   const [waifu, setWaifu] = useState('/rem.png');
   const [flowType, setFlowType] = useState('pomo');
   const [workTime, setWorkTime] = useState(25 * 60);
@@ -16,51 +16,16 @@ export default function Home() {
   const [longBreakTime, setLongBreakTime] = useState(25 * 60);
 
   useEffect(() => {
-    if (waifu.includes('rem')) {
-      setFontColor('#fff');
-      setBgColor('#8ED1FC');
+    if (localStorage.getItem('waifu')) {
+      setWaifu(localStorage.getItem('waifu'));
     }
-    if (waifu.includes('hange')) {
-      setFontColor('#fff');
-      setBgColor('#7BDCB5');
+    if (localStorage.getItem('bgColor')) {
+      setBgColor(localStorage.getItem('bgColor'));
     }
-    if (waifu.includes('holo')) {
-      setFontColor('#fff');
-      setBgColor('#F78DA7');
+    if (localStorage.getItem('fontColor')) {
+      setFontColor(localStorage.getItem('fontColor'));
     }
-    if (waifu.includes('asuka')) {
-      setFontColor('#fff');
-      setBgColor('#EB144C');
-    }
-    if (waifu.includes('ram')) {
-      setFontColor('#fff');
-      setBgColor('#F78DA7');
-    }
-    if (waifu.includes('emilia')) {
-      setFontColor('#fff');
-      setBgColor('#8766bf');
-    }
-    if (waifu.includes('2b')) {
-      setFontColor('#fff');
-      setBgColor('#1d1d1d');
-    }
-    if (waifu.includes('alice')) {
-      setFontColor('#fff');
-      setBgColor('#EB144C');
-    }
-    if (waifu.includes('marisa')) {
-      setFontColor('#fff');
-      setBgColor('#0693E3');
-    }
-    if (waifu.includes('oumae')) {
-      setFontColor('#fff');
-      setBgColor('#7BDCB5');
-    }
-    if (waifu.includes('sakuraku')) {
-      setFontColor('#1d1d1d');
-      setBgColor('#fff');
-    }
-  }, [waifu]);
+  }, []);
 
   return (
     <div className={styles.container}>

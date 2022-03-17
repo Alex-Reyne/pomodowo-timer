@@ -60,16 +60,20 @@ export const Drawer = ({
 
   const handleSetOpenFont = () => {
     setOpenColorChanger(false);
-    openFontColorChanger ? setOpenFontColorChanger(false) : setOpenFontColorChanger(true);
+    openFontColorChanger
+      ? setOpenFontColorChanger(false)
+      : setOpenFontColorChanger(true);
   };
 
   const handleChange = (e) => {
     setBgColor(e.hex);
+    localStorage.setItem('bgColor', e.hex);
     setOpenColorChanger(false);
   };
 
   const handleFontChange = (e) => {
     setFontColor(e.hex);
+    localStorage.setItem('fontColor', e.hex);
     setOpenFontColorChanger(false);
   };
 
@@ -118,13 +122,21 @@ export const Drawer = ({
             <h2 onClick={handleSetOpen}>BG Color</h2>
             {openColorChanger && (
               <div className={styles.colors}>
-                <TwitterPicker colors={colors} triangle="top-right" onChange={handleChange} />
+                <TwitterPicker
+                  colors={colors}
+                  triangle="top-right"
+                  onChange={handleChange}
+                />
               </div>
             )}
             <h2 onClick={handleSetOpenFont}>Font Color</h2>
             {openFontColorChanger && (
               <div className={styles.font_colors}>
-                <TwitterPicker colors={colors} triangle="top-right" onChange={handleFontChange} />
+                <TwitterPicker
+                  colors={colors}
+                  triangle="top-right"
+                  onChange={handleFontChange}
+                />
               </div>
             )}
             <h2
@@ -139,8 +151,14 @@ export const Drawer = ({
             {openPomo && (
               <form onSubmit={(e) => handlePomo(e)}>
                 <p style={{ marginBottom: 0 }}>Default: 25 minutes</p>
-                <p style={{ marginBottom: 0 }}>Current: {workTime / 60} minutes</p>
-                <input type="number" placeholder="minutes" style={{ color: fontColor }}></input>
+                <p style={{ marginBottom: 0 }}>
+                  Current: {workTime / 60} minutes
+                </p>
+                <input
+                  type="number"
+                  placeholder="minutes"
+                  style={{ color: fontColor }}
+                ></input>
                 <button type="submit">set</button>
               </form>
             )}
@@ -156,8 +174,14 @@ export const Drawer = ({
             {openShort && (
               <form onSubmit={(e) => handleShort(e)}>
                 <p style={{ marginBottom: 0 }}>Default: 5 minutes</p>
-                <p style={{ marginBottom: 0 }}>Current: {breakTime / 60} minutes</p>
-                <input type="number" placeholder="minutes" style={{ color: fontColor }}></input>
+                <p style={{ marginBottom: 0 }}>
+                  Current: {breakTime / 60} minutes
+                </p>
+                <input
+                  type="number"
+                  placeholder="minutes"
+                  style={{ color: fontColor }}
+                ></input>
                 <button type="submit">set</button>
               </form>
             )}
@@ -173,8 +197,14 @@ export const Drawer = ({
             {openLong && (
               <form onSubmit={(e) => handleLong(e)}>
                 <p style={{ marginBottom: 0 }}>Default: 25 minutes</p>
-                <p style={{ marginBottom: 0 }}>Current: {longBreakTime / 60} minutes</p>
-                <input type="number" placeholder="minutes" style={{ color: fontColor }}></input>
+                <p style={{ marginBottom: 0 }}>
+                  Current: {longBreakTime / 60} minutes
+                </p>
+                <input
+                  type="number"
+                  placeholder="minutes"
+                  style={{ color: fontColor }}
+                ></input>
                 <button type="submit">set</button>
               </form>
             )}
@@ -201,6 +231,7 @@ export const Drawer = ({
                     <h3
                       onClick={(e) => {
                         setWaifu(`/${waifu}.png`);
+                        localStorage.setItem('waifu', `/${waifu}.png`);
                         setOpenWaifuPicker(false);
                       }}
                     >
@@ -212,7 +243,11 @@ export const Drawer = ({
             )}
           </div>
           <div className={styles.coffee}>
-            <a href="https://paypal.me/jordanreyne" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://paypal.me/jordanreyne"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src="/paypal.svg" width="50px" />
               <p>Buy me a coffee</p>
             </a>

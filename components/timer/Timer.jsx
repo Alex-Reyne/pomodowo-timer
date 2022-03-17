@@ -10,7 +10,6 @@ export const Timer = ({
   breakTime,
   longBreakTime,
 }) => {
-
   //test
 
   const [flowSet, setFlowSet] = useState(1);
