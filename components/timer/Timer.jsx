@@ -10,6 +10,7 @@ export const Timer = ({
   breakTime,
   longBreakTime,
 }) => {
+  // comment for test.
   const [flowSet, setFlowSet] = useState(1);
 
   const [timeLeft, setTimeLeft] = useState(workTime);
@@ -73,11 +74,20 @@ export const Timer = ({
   }, [timer]);
 
   return (
-    <div id="timer" className={styles.timer__container} style={{ backgroundColor: bgColor }}>
+    <div
+      id="timer"
+      className={styles.timer__container}
+      style={{ backgroundColor: bgColor }}
+    >
       <div className={styles.base_timer}>
         <svg className={styles.base_timer__svg} viewBox="0 0 100 100">
           <g className={styles.base_timer__circle}>
-            <circle className={styles.base_timer__path_elapsed} cx="50" cy="50" r="45" />
+            <circle
+              className={styles.base_timer__path_elapsed}
+              cx="50"
+              cy="50"
+              r="45"
+            />
           </g>
         </svg>
         <span id="base-timer-label" className={styles.base_timer__label}>
