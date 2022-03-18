@@ -28,8 +28,10 @@ export const Timer = ({
         key={circleTime}
         isPlaying={isPlaying}
         duration={circleTime}
+        isSmoothColorTransition={false}
         rotation="counterclockwise"
-        colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+        trailColor="#ffffff00"
+        colors={[`#0000004e`, '#F7B8014e', '#A300004e', '#A300004e']}
         colorsTime={[5 * 60, 2 * 60, 1 * 60, 0]}
       >
         {({ remainingTime }) => (
