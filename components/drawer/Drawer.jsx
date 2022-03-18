@@ -44,16 +44,17 @@ export const Drawer = ({
 
   const waifus = [
     'rem',
+    'ram',
     'hange',
     'holo',
+    'marin',
     'asuka',
-    'ram',
     'emilia',
-    '2b',
-    'alice',
     'marisa',
     'oumae',
     'sakuraku',
+    'alice',
+    '2b',
   ];
 
   const handleSetOpen = () => {
