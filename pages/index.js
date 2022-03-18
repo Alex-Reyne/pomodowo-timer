@@ -32,7 +32,10 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>PomodOwO</title>
-
+        <meta property="og:image" content="./images/pomodowo-screenshot.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta
           name="description"
           content="Designed and Developed by Alex-Reyne on github."
