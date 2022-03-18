@@ -83,16 +83,25 @@ export const Drawer = ({
 
   const handlePomo = (e) => {
     e.preventDefault();
+
+    if (e.target[0].value <= 0) return;
+
     setWorkTime(e.target[0].value * 60);
     setOpenPomo(false);
   };
   const handleShort = (e) => {
     e.preventDefault();
+
+    if (e.target[0].value <= 0) return;
+
     setBreakTime(e.target[0].value * 60);
     setOpenShort(false);
   };
   const handleLong = (e) => {
     e.preventDefault();
+
+    if (e.target[0].value <= 0) return;
+
     setLongBreakTime(e.target[0].value * 60);
     setOpenLong(false);
   };
