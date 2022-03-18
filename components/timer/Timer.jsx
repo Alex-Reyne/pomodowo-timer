@@ -6,6 +6,7 @@ import styles from './Timer.module.scss';
 
 export const Timer = ({
   bgColor,
+  fontColor,
   flowType,
   setFlowType,
   waifu,
@@ -135,16 +136,27 @@ export const Timer = ({
             {flowType === 'pomo' && 'Pomo Flow'}
             {flowType === 'doro' && 'Doro Flow'}
           </h1>
-          <button onClick={() => start()}>Start</button>
+          <button
+            onClick={() => start()}
+            style={{ color: bgColor, backgroundColor: fontColor }}
+          >
+            Start
+          </button>
           <button
             onClick={() => {
               clearInterval(timer);
               setIsPlaying(false);
             }}
+            style={{ color: bgColor, backgroundColor: fontColor }}
           >
             Stop
           </button>
-          <button onClick={(e) => reset()}>Reset</button>
+          <button
+            onClick={(e) => reset()}
+            style={{ color: bgColor, backgroundColor: fontColor }}
+          >
+            Reset
+          </button>
         </div>
       </div>
     </div>
