@@ -61,6 +61,7 @@ export default function Home() {
           setLongBreakTime={setLongBreakTime}
         />
         <Timer
+          fontColor={fontColor}
           bgColor={bgColor}
           waifu={waifu}
           flowType={flowType}
