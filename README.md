@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PomodOwO!
 
-## Getting Started
+Welcome to PomodOwO! A simple Pomodoro timer app that you can customize to your liking. Designed and Developed by Alexander Reyne.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+```
+PomodOwO is mobile responsive so you can enjoy anywhere!
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![PomodOwO ScreenShot](public/mobile-screenshot.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![PomodOwO ScreenShot](public/desktop-screenshot.png)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Settings
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+You can customize:
 
-## Learn More
+- Work timer
+- Break timer
+- Long break timer
+- Background color
+- Font color
+- Your waifu
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Future Updates Im Working On
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```- More Waifus
+- UI updates
+- Customizable alert sounds
+- Flow Tracker
+- Quotes for each Waifu
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Dependencies
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```- React.js
+- React-Dom
+- Next.js
+- SASS
+- React-Color
+- Use-Sound
+- React-Countdown-Circle-Timer
+```
