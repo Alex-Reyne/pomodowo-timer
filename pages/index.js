@@ -32,6 +32,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>PomodOwO</title>
+
         <meta
           name="description"
           content="Designed and Developed by Alex-Reyne on github."
