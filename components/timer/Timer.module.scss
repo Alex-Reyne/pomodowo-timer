@@ -8,6 +8,10 @@
   height: 100vh;
 
   z-index: 0;
+
+  button {
+    cursor: pointer;
+  }
 }
 
 /* Sets the containers height and width */
