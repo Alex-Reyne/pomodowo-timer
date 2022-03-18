@@ -18,7 +18,7 @@ export const Timer = ({
   const [circleTime, setCircleTime] = useState(workTime);
   const [timer, setTimer] = useState();
   const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(0.05);
+  const [volume, setVolume] = useState(0.25);
   const [playBaka] = useSound('./baka.mp3', { volume });
   const [playAraAra] = useSound('./ara-ara.mp3', { volume });
 
