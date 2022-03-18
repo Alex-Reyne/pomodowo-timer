@@ -229,6 +229,7 @@ export const Drawer = ({
                 {waifus.map((waifu) => {
                   return (
                     <h3
+                      key={waifu}
                       onClick={(e) => {
                         setWaifu(`/${waifu}.png`);
                         localStorage.setItem('waifu', `/${waifu}.png`);
