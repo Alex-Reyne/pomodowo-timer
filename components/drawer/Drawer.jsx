@@ -17,6 +17,7 @@ const colors = [
 ];
 
 export const Drawer = ({
+  bgColor,
   setBgColor,
   fontColor,
   setFontColor,
@@ -149,6 +150,49 @@ export const Drawer = ({
             >
               Settings
             </h1>
+            <h2 onClick={handleAestheticMenu}>Aesthetics</h2>
+            {visualSettings && (
+              <>
+                <h2 onClick={handleSetOpen}>BG Color</h2>
+                {openColorChanger && (
+                  <div className={styles.colors}>
+                    <TwitterPicker
+                      colors={colors}
+                      triangle="top-right"
+                      onChange={handleChange}
+                    />
+                  </div>
+                )}
+                <h2 onClick={handleSetOpenFont}>Font Color</h2>
+                {openFontColorChanger && (
+                  <div className={styles.font_colors}>
+                    <TwitterPicker
+                      colors={colors}
+                      triangle="top-right"
+                      onChange={handleFontChange}
+                    />
+                  </div>
+                )}
+                <h2 onClick={handleWaifuPicker}>Change Waifu</h2>
+                {openWaifuPicker && (
+                  <div className={styles.drawer__waifu_list}>
+                    {waifus.map((waifu) => {
+                      return (
+                        <h3
+                          key={waifu}
+                          onClick={(e) => {
+                            setWaifu(`/${waifu}.png`);
+                            localStorage.setItem('waifu', `/${waifu}.png`);
+                          }}
+                        >
+                          {waifu}
+                        </h3>
+                      );
+                    })}
+                  </div>
+                )}
+              </>
+            )}
             {!openWaifuPicker && (
               <>
                 <h2 onClick={handleTimerMenu}>Timers</h2>
@@ -174,7 +218,12 @@ export const Drawer = ({
                           placeholder="minutes"
                           style={{ color: fontColor }}
                         ></input>
-                        <button type="submit">set</button>
+                        <button
+                          type="submit"
+                          style={{ color: bgColor, backgroundColor: fontColor }}
+                        >
+                          set
+                        </button>
                       </form>
                     )}
                     <h2
@@ -197,7 +246,12 @@ export const Drawer = ({
                           placeholder="minutes"
                           style={{ color: fontColor }}
                         ></input>
-                        <button type="submit">set</button>
+                        <button
+                          type="submit"
+                          style={{ color: bgColor, backgroundColor: fontColor }}
+                        >
+                          set
+                        </button>
                       </form>
                     )}
                     <h2
@@ -220,51 +274,13 @@ export const Drawer = ({
                           placeholder="minutes"
                           style={{ color: fontColor }}
                         ></input>
-                        <button type="submit">set</button>
+                        <button
+                          type="submit"
+                          style={{ color: bgColor, backgroundColor: fontColor }}
+                        >
+                          set
+                        </button>
                       </form>
-                    )}
-                  </>
-                )}
-                <h2 onClick={handleAestheticMenu}>Aesthetics</h2>
-                {visualSettings && (
-                  <>
-                    <h2 onClick={handleSetOpen}>BG Color</h2>
-                    {openColorChanger && (
-                      <div className={styles.colors}>
-                        <TwitterPicker
-                          colors={colors}
-                          triangle="top-right"
-                          onChange={handleChange}
-                        />
-                      </div>
-                    )}
-                    <h2 onClick={handleSetOpenFont}>Font Color</h2>
-                    {openFontColorChanger && (
-                      <div className={styles.font_colors}>
-                        <TwitterPicker
-                          colors={colors}
-                          triangle="top-right"
-                          onChange={handleFontChange}
-                        />
-                      </div>
-                    )}
-                    <h2 onClick={handleWaifuPicker}>Change Waifu</h2>
-                    {openWaifuPicker && (
-                      <div className={styles.drawer__waifu_list}>
-                        {waifus.map((waifu) => {
-                          return (
-                            <h3
-                              key={waifu}
-                              onClick={(e) => {
-                                setWaifu(`/${waifu}.png`);
-                                localStorage.setItem('waifu', `/${waifu}.png`);
-                              }}
-                            >
-                              {waifu}
-                            </h3>
-                          );
-                        })}
-                      </div>
                     )}
                   </>
                 )}
