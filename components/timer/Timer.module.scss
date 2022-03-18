@@ -61,10 +61,15 @@
   z-index: -1;
 }
 
+.timer_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 @media screen and (max-width: 600px) {
-  .timer__container {
-    display: flex;
-    flex-direction: column;
+  .timer_info {
     margin-top: -20rem;
   }
 }

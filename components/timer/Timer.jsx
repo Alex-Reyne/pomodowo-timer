@@ -127,23 +127,25 @@ export const Timer = ({
       className={styles.timer__container}
       style={{ backgroundColor: bgColor }}
     >
-      {circleTimer(timeLeft)}
-      <img src={waifu} className={styles.waifu_pic} />
-      <div>
-        <h1 className={styles.flow_type}>
-          {flowType === 'pomo' && 'Pomo Flow'}
-          {flowType === 'doro' && 'Doro Flow'}
-        </h1>
-        <button onClick={() => start()}>Start</button>
-        <button
-          onClick={() => {
-            clearInterval(timer);
-            setIsPlaying(false);
-          }}
-        >
-          Stop
-        </button>
-        <button onClick={(e) => reset()}>Reset</button>
+      <div className={styles.timer_info}>
+        {circleTimer(timeLeft)}
+        <img src={waifu} className={styles.waifu_pic} />
+        <div>
+          <h1 className={styles.flow_type}>
+            {flowType === 'pomo' && 'Pomo Flow'}
+            {flowType === 'doro' && 'Doro Flow'}
+          </h1>
+          <button onClick={() => start()}>Start</button>
+          <button
+            onClick={() => {
+              clearInterval(timer);
+              setIsPlaying(false);
+            }}
+          >
+            Stop
+          </button>
+          <button onClick={(e) => reset()}>Reset</button>
+        </div>
       </div>
     </div>
   );
