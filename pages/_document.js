@@ -21,7 +21,7 @@ class MyDocument extends Document {
 
           <script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=G-123456789"
+            src="https://www.googletagmanager.com/gtag/js?id=G-KJ9N40PKBC"
           ></script>
 
           <script
@@ -30,7 +30,7 @@ class MyDocument extends Document {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', ${process.env.NEXT_PUBLIC_GA_ID}, {
+            gtag('config', 'G-KJ9N40PKBC', {
               page_path: window.location.pathname,
             });
           `,
