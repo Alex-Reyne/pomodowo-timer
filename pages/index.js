@@ -38,7 +38,7 @@ export default function Home() {
         <meta property="og:image:height" content="630" />
         <meta
           name="description"
-          content="Designed and Developed by Alex-Reyne on github."
+          content="Welcome to PomodOwO! A simple Pomodoro timer app that you can customize to your liking. Designed and Developed by Alex-Reyne on github"
         />
         <link rel="icon" href="/pomodowo-logo.svg" />
       </Head>
