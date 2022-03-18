@@ -7,7 +7,7 @@
   right: 0;
 
   position: absolute;
-  z-index: 1;
+  z-index: 999;
 
   text-align: right;
 
@@ -93,5 +93,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .drawer__container {
+    background-color: rgba(0, 0, 0, 0.726);
   }
 }

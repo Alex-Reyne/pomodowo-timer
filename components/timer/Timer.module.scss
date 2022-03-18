@@ -60,3 +60,11 @@
   position: absolute;
   z-index: -1;
 }
+
+@media screen and (max-width: 600px) {
+  .timer__container {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20rem;
+  }
+}
