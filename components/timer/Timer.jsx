@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
+import useSound from 'use-sound';
+
 import styles from './Timer.module.scss';
 
 export const Timer = ({
@@ -10,14 +13,35 @@ export const Timer = ({
   breakTime,
   longBreakTime,
 }) => {
-  //test
-
   const [flowSet, setFlowSet] = useState(1);
-
   const [timeLeft, setTimeLeft] = useState(workTime);
+  const [circleTime, setCircleTime] = useState(workTime);
   const [timer, setTimer] = useState();
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.05);
+  const [playBaka] = useSound('./baka.mp3', { volume });
+  const [playAraAra] = useSound('./ara-ara.mp3', { volume });
 
-  function formatTimeLeft(time) {
+  const circleTimer = () => {
+    return (
+      <CountdownCircleTimer
+        key={circleTime}
+        isPlaying={isPlaying}
+        duration={circleTime}
+        rotation="counterclockwise"
+        colors={['#004777', '#F7B801', '#A30000', '#A30000']}
+        colorsTime={[5 * 60, 2 * 60, 1 * 60, 0]}
+      >
+        {({ remainingTime }) => (
+          <span id="base-timer-label" className={styles.base_timer__label}>
+            {formatTimeLeft(timeLeft)}
+          </span>
+        )}
+      </CountdownCircleTimer>
+    );
+  };
+
+  const formatTimeLeft = (time) => {
     const minutes = Math.floor(time / 60);
 
     let seconds = time % 60;
@@ -27,23 +51,43 @@ export const Timer = ({
     }
 
     return `${minutes}:${seconds}`;
-  }
+  };
 
-  const checkFlow = () => {
+  const reset = () => {
+    clearInterval(timer);
+    setCircleTime(0);
+
+    setTimeout(() => {
+      setTimeLeft(circleTime);
+      setCircleTime(circleTime);
+    }, 100);
+  };
+
+  const checkFlow = (sound) => {
     if (flowType === 'pomo') {
       setTimeLeft(workTime);
+      setCircleTime(workTime);
+
+      sound ? playBaka() : null;
     }
 
     if (flowType === 'doro') {
       flowSet % 4 === 0 ? setTimeLeft(longBreakTime) : setTimeLeft(breakTime);
+
+      flowSet % 4 === 0
+        ? setCircleTime(longBreakTime)
+        : setCircleTime(breakTime);
+
+      sound ? playAraAra() : null;
     }
   };
 
   useEffect(() => {
-    checkFlow();
+    checkFlow(true);
   }, [flowType]);
 
   const start = () => {
+    setIsPlaying(true);
     const timer = setInterval(() => {
       setTimeLeft((timeLeft) => timeLeft - 1);
       if (timeLeft === 0) {
@@ -54,11 +98,12 @@ export const Timer = ({
   };
 
   useEffect(() => {
-    checkFlow();
+    checkFlow(false);
   }, [workTime, breakTime, longBreakTime]);
 
   useEffect(() => {
     if (timeLeft === 0) {
+      setIsPlaying(false);
       clearInterval(timer);
       if (flowType === 'pomo') {
         setFlowType('doro');
@@ -80,21 +125,7 @@ export const Timer = ({
       className={styles.timer__container}
       style={{ backgroundColor: bgColor }}
     >
-      <div className={styles.base_timer}>
-        <svg className={styles.base_timer__svg} viewBox="0 0 100 100">
-          <g className={styles.base_timer__circle}>
-            <circle
-              className={styles.base_timer__path_elapsed}
-              cx="50"
-              cy="50"
-              r="45"
-            />
-          </g>
-        </svg>
-        <span id="base-timer-label" className={styles.base_timer__label}>
-          {formatTimeLeft(timeLeft)}
-        </span>
-      </div>
+      {circleTimer(timeLeft)}
       <img src={waifu} className={styles.waifu_pic} />
       <div>
         <h1 className={styles.flow_type}>
@@ -102,14 +133,15 @@ export const Timer = ({
           {flowType === 'doro' && 'Doro Flow'}
         </h1>
         <button onClick={() => start()}>Start</button>
-        <button onClick={() => clearInterval(timer)}>Stop</button>
         <button
           onClick={() => {
-            checkFlow();
+            clearInterval(timer);
+            setIsPlaying(false);
           }}
         >
-          Reset
+          Stop
         </button>
+        <button onClick={(e) => reset()}>Reset</button>
       </div>
     </div>
   );
