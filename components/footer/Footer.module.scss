@@ -1,0 +1,39 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 2rem;
+
+  bottom: 0;
+  height: 4rem;
+  width: 100vw;
+
+  background-color: #00000070;
+
+  position: absolute;
+  z-index: 997;
+
+  h1 {
+    padding: 0.25rem;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  a:visited {
+    color: #fff;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    text-align: center;
+    justify-content: flex-end;
+
+    a::before {
+      content: '\a';
+      white-space: pre;
+    }
+  }
+}

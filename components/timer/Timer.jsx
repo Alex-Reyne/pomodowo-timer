@@ -130,7 +130,6 @@ export const Timer = ({
     >
       <div className={styles.timer_info}>
         {circleTimer(timeLeft)}
-        <img src={waifu} className={styles.waifu_pic} />
         <div>
           <h1 className={styles.flow_type}>
             {flowType === 'pomo' && 'Pomo Flow'}

@@ -109,3 +109,12 @@
     flex-direction: column;
   }
 }
+
+.waifu_pic {
+  max-height: 45%;
+  max-width: 300px;
+  bottom: 0;
+  left: 2rem;
+  position: fixed;
+  z-index: 998;
+}

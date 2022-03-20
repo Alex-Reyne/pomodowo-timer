@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { Drawer } from '../components/drawer/Drawer';
 import { Timer } from '../components/timer/Timer';
 import { Navbar } from '../components/navbar/Navbar';
+import { Footer } from '../components/footer/Footer';
 import styles from '../styles/Home.module.css';
 
 import { useState, useEffect } from 'react';
@@ -70,6 +71,8 @@ export default function Home() {
           breakTime={breakTime}
           longBreakTime={longBreakTime}
         />
+        <img src={waifu} className={styles.waifu_pic} />
+        <Footer />
       </main>
     </div>
   );
