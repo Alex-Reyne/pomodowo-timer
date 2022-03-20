@@ -5,7 +5,11 @@ export const Footer = () => {
     <div className={styles.footer}>
       <h4>
         Designed and Developed by{' '}
-        <a href="https://github.com/alex-reyne/pomodowo-timer" target="_blank">
+        <a
+          href="https://github.com/alex-reyne/pomodowo-timer"
+          target="_blank"
+          rel="noreferrer"
+        >
           Alex Reyne
         </a>
       </h4>
