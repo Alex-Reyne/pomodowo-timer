@@ -21,12 +21,6 @@ class MyDocument extends Document {
 
           <script
             async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1538389002999248"
-            crossOrigin="anonymous"
-          ></script>
-
-          <script
-            async
             src="https://www.googletagmanager.com/gtag/js?id=G-KJ9N40PKBC"
           ></script>
 
